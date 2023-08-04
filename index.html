@@ -7,11 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
           content="A novel approach that achieves photo-realistic rendering, fast reconstruction, and compact modeling.">
-    <meta name="author" content="Anpei Chen*,
-                                Zexiang Xu*,
-                                Andreas Geiger,
-                                Jingyi Yu,
-                                Hao Su">
+    <meta name="author" content="Mr.Demox">
 
     <title>TensoRF: Tensorial Radiance Fields</title>
 
@@ -26,24 +22,13 @@
 <body>
 <div class="jumbotron jumbotron-fluid">
     <div class="container"></div>
-    <h1 class="nerf_title_v2">TensoRF</h1>
-<!--    <h2 class="nerf_title_v2">Tensorial Radiance Fields</h2>-->
-    <h1 class="nerf_subheader_v2">Tensorial Radiance Fields</h1>
-<!--    <h2>TensoRF: Tensorial Radiance Fields</h2>-->
-        <h3 class="nerf_subheader_v2">ECCV 2022 (scores: 1, 1, 1)</h3>
-<!--            <p class="abstract">A compact and efficent scene representation</p>-->
+    <h1 class="nerf_title_v2">NeRF</h1>
+    <h1 class="nerf_subheader_v2">xxx about work introduce</h1>
+         <p class="abstract">A compact and efficent scene representation</p>
     <hr>
     <p class="authors">
-        <a href="https://apchenstu.github.io/"> Anpei Chen*</a>,
-        <a href="http://cseweb.ucsd.edu/~zex014/"> Zexiang Xu*</a>,
-        <a href="http://www.cvlibs.net/"> Andreas Geiger</a>,
-        <a href="https://sist.shanghaitech.edu.cn/2020/0707/c7499a53862/page.htm"> Jingyi Yu</a>,
-        <a href="https://cseweb.ucsd.edu/~haosu/"> Hao Su</a>
-
+        <a href="https://apchenstu.github.io/">Demox</a>,
     </p>
-
-    <div class="nerf_equal_v2"><span class="text-span_nerf">*</span><span class="text-span_nerf_star">*</span>Denotes Equal Contribution</div>
-
     </br></br>
     <div class="btn-group" role="group" aria-label="Top menu">
         <a class="btn btn-primary" href="https://arxiv.org/abs/2203.09517">Paper</a>
@@ -76,37 +61,27 @@
                 Abstract
             </h2>
             <p class="paragraph-3 nerf_text">
-                We present a novel approach to model and reconstruct radiance fields.
-                Unlike NeRF that uses pure MLPs,
-                we consider the full volume field as a 4D tensor and propose to factorize the tensor into multiple compact low-rank tensor components for efficient scene modeling.
+                xxx
             </p>
             <div class="columns-5 w-row">
                 <img src="img/teaser_v6.png" style="width:95%; margin-right:0px; margin-top:0px;">
             </div>
 <!--            <img src="img/teaser_v6.png" alt="" class="nerf_network"/>-->
             <p class="paragraph-3 nerf_text">
-                We model a scene (left) as a tensorial radiance field (right) using a set of vectors and matrices that describe scene appearance
-                and geometry along their corresponding axes. These vector/matrix factors are used to compute volume density and
-                view-dependent RGB color via vector-matrix outer products, leading to efficient radiance field reconstruction and realistic rendering.
+               xxx
                 </br>
-                We demonstrate that TensoRF with CP decomposition can achieve fast reconstruction with better rendering quality and even a smaller model size (<b>< 4MB</b>) than NeRF.
-                Moreover, TensoRF with VM decomposition can further boost our rendering quality to outperform previous state-of-the-art methods and reduce the reconstruction time (<b>< 10min</b> only with standard PyTorch implementation).
+               xxx
             </p>
 
             <h2 class="grey-heading_nerf">
                 Method
             </h2>
             <p class="paragraph-3 nerf_text">
-                We factorize radiance fields into compact components for scene modeling.
-                To doso, we apply both the classic CP decomposition and a new vector-matrix (VM) decomposition; both are illustrated in following figure:
+                xxx
             </p>
-            <div class="columns-5 w-row">
-                <img src="img/tensor_factorizationpng.png" style="width:95%; margin-right:0px; margin-top:0px;">
-            </div>
+     
             <p class="paragraph-3 nerf_text">
-                Left: CP decomposition, which factorizes atensor as a sum of vector outer products.
-                Right: our vector-matrix decomposition, which factorizes a tensor as a sum of vector-matrix outer products.
-                Please refer to our paper for more decomposition derails.
+                xxxx
             </p>
 
 
@@ -115,10 +90,7 @@
             </div>
 
             <p class="paragraph-3 nerf_text">
-                We now present our TensoRF representation and reconstruction. For each shading location <b>x</b> = (x,y,z), we use linearly/bilinearly sampled values from the vector (<b>v</b>)/matrix (<b>M</b>) factors to compute the corresponding trilinearly interpolated values of the tensor components.
-                The density component values (A<sub>σ</sub>(x)) are summed to get the volume density directly (σ).
-                The appearance values (A<sub>c</sub>(x)) are concatenated into a vector (⊕[A<sub>c</sub><sup style="margin-left:-8px">m</sup>(x)]<sub>m</sub>) that is then multiplied by an appearance matrix (<b>B</b>) and sent to the decoding function S for RGB color (c) regression.
-                The decoding function S can be a Spherical Harmonic (SH) function or a fully-connected network (FCN).
+                xxx
             </p>
         </div>
     </div>
@@ -133,9 +105,7 @@
                 Super Fast Convergence
         </h2>
         <p class="paragraph-3 nerf_text">
-            Given a set of multi-view input images with known camera poses,
-            our tensorial radiance field is optimized per scene via gradient descent,
-            minimizing an L2 rendering loss, using only the ground truth pixel colors as supervision.
+            xxx
         </p>
         <div class="w-slide">
               <div class="div-block-9">
@@ -155,19 +125,14 @@
           </div><!--  training process -->
 
         <p class="paragraph-3 nerf_text">
-            Note that, unlike concurrent works <a href="https://alexyu.net/plenoxels/"> Plenoxels</a>
-            and  <a href="https://nvlabs.github.io/instant-ngp/"> Instant-ngp</a>
-            that require customized CUDA kernels, our model’s
-            efficiency gains are obtained using a standard PyTorch implementation.
+            xxx
         </p>
 
         <h2 class="grey-heading_nerf">
             Super Compact Memory Footprint
         </h2>
         <p class="paragraph-3 nerf_text">
-            In contrast to previous works that directly reconstruct voxels,
-            our tensor factorization reduces space complexity from O(n<sup>3</sup>) to O(n) (with CP) or O(n<sup>2</sup>) (with VM),
-            significantly lowering memory footprint.
+           xxx
         </p>
 
         <div class="columns-5 w-row">
@@ -183,9 +148,8 @@
         </h2>
         <p class="paragraph-3 nerf_text">
 <!--             text-center-->
-             Our approach can also achieve high-quality radiance field reconstruction
-             for 360<sup>o</sup> objects and forward-facing scenes.
-             All results without compression are available at <a href="https://1drv.ms/u/s!Ard0t_p4QWIMgQ2qSEAs7MUk8hVw?e=lwKlme/"> OneDrive</a>.
+            xxx
+            <a href="https://1drv.ms/u/s!Ard0t_p4QWIMgQ2qSEAs7MUk8hVw?e=lwKlme/"> OneDrive</a>.
         </p>
 
 <!--        <style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></div>-->
@@ -496,8 +460,7 @@
             Visualization
         </h2>
         <p class="paragraph-3 nerf_text">
-            Here we visualize the trained density basis of the Lego scene, the number of the basis is 16 for each dimension.
-            We normalize the basis with min/max value along each dimension thus the brightness corresponds to their energy.
+            xxxx
         </p>
         <div class="columns-5 w-row">
             <img src="img/density_basis_vis.jpg" style="width:100%; margin-right:0px; margin-top:0px;">
@@ -524,11 +487,7 @@
 <!--        <h2 class="grey-heading_nerf">-->
 <!--            Extension-->
 <!--        </h2>-->
-<!--        <p class="paragraph-3 nerf_text">-->
-<!--            As far as we know, our work is the first that views radiance field modeling from a-->
-<!--            tensorial perspective and pose the problem of radiance field reconstruction as-->
-<!--            one of low-rank tensor reconstructions.-->
-<!--        </p>-->
+
 
         </br></br></br>
         <s2> Concurrent works </s2>
@@ -552,10 +511,7 @@
         <s2> Acknowledgements </s2>
         <hr>
         <p class="paragraph-3 nerf_text">
-            We would like to thank  Yannick Hold-Geoffroy for his useful suggestion in video animation,
-            Qiangeng Xu for providing some baseline results,
-            and, Katja Schwarz and Michael Niemeyer for providing helpful video materials.
-            This project was supported by NSF grant IIS-1764078 and gift money from VIVO.
+            xxxx
         </p>
 <!--    </div>-->
 
@@ -576,12 +532,7 @@
         <s2>Bibtex</s2>
         <hr>
         <div class="bibtexsection">
-            @INPROCEEDINGS{Chen2022ECCV,
-              author = {Anpei Chen and Zexiang Xu and Andreas Geiger and Jingyi Yu and Hao Su},
-              title = {TensoRF: Tensorial Radiance Fields},
-              booktitle = {European Conference on Computer Vision (ECCV)},
-              year = {2022}
-            }
+            xxx
         </div>
 <!--    </div>-->
     </div>
@@ -589,7 +540,7 @@
 
     <footer>
         <p>This website is partially borrowed from NeRF.
-            Send feedback and questions to <a href="https://apchenstu.github.io/">Anpei Chen</a></p>
+            Send feedback and questions to <a href="https://mldemox.github.io/">Mr.Demox</a></p>
     </footer>
 </div>
 
